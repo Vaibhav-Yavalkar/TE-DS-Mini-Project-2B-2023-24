@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <br><br>
+        <form action="#" method="POST" enctype="multipart/form-data">
+            <div class="input-group">
+                <input type="file" class="form-control" name="image_name" required>
+                <input type="submit" value="Upload" class="btn btn-dark">
+            </div>
+        </form>
+    </div>
+
+    {% if upload %}
+        <div class="container">
+            <br><br>
+            <table>
+                <tr>
+                    <td>
+                        <img class="rounded float-left img-fluid" src="/static/upload/{{ upload_image }}" alt="">
+                    </td>
+                    <td>
+                        <img class="rounded float-right img-fluid" src="/static/predict/{{ upload_image }}" alt="">
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <div class="text-container">
+                <h2>Extracted Text:</h2>
+                <ul class="text-list">
+                    {% for lic in text %}
+                        <li>{{ lic }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="text-info">
+                <p>Number of License Plates Detected: {{ no }}</p>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}
