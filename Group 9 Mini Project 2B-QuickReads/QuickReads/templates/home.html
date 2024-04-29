@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+  <title>QuickReads | Your Daily Article Dose</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="/static/img/logo_q.png" alt="QuickReads Logo">
+      </a>
+      <h1>QUICKREADS</h1>
+      <nav>
+        <ul>
+          <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i> Search</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#"><i class="fa-solid fa-plus"></i> Follow</a></li>
+          <li><a href="#"><i class="fa-regular fa-bell"></i></a></li>
+          <!-- Dropdown Menu for User -->
+          <li class="dropdown">
+            <a href="#" class="dropbtn"><i class="fa-regular fa-user"></i></a>
+            <div class="dropdown-content">
+              <a href="#"><span class="welcome-text">{{ request.user }}</span>
+              <a href="{% url 'Home' %}"><i class="fa-solid fa-house"></i></i>Home</a>
+              <a href="/my_view"><i class="fa-solid fa-book-open-reader"></i>  Top Recommended Article</a>
+              <a href="#"><i class="fa-solid fa-user"></i>    Profile</a>
+              <a href="/saved"><i class="fa-solid fa-bookmark"></i> Saved</a>
+              <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+              <a href="{% url 'Logout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+            </div>
+          </li>
+        </ul>
+
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Get Your Daily Dose of Articles</h1>
+      <p>Stay informed and up-to-date with the latest news and stories from around the world. <br>
+        QuickReads curates the best articles for you, saving your time and effort.</p>
+    </div>
+    <div class="foryou">
+      <h1>FOR YOU <a href="/my_view"><i class="fa-solid fa-sliders" style="color: #333;"></i></a></h1>
+      <p>The best of everything you follow</p>
+    </div>
+  </section>
+
+  
+<!--support section starts-->
+<section class="Topics"id="Topics">
+  <h1 >Topics</h1>
+  <div class="box-container">
+    
+      <div class="box">
+          <img src="/static/img/health.png"alt="">
+              <a href="/Health"class="btn">HEALTH</a>
+      </div>
+
+      <div class="box">
+          <img src="/static/img/Tech.png"alt="">
+          <a href="/Technology"class="btn">TECHNOLOGY</a>
+      </div>
+
+      <div class="box">
+        <img src="/static/img/Edu.png"alt="">
+        <a href="/Education"class="btn">EDUCATION</a>
+      </div>
+
+      <div class="box">
+        <img src="/static/img/Movies.png"alt="">
+        <a href="/Movies"class="btn">MOVIES</a>
+      </div>
+     
+      <div class="box">
+        <img src="/static/img/Politics.png"alt="">
+        <a href="/Politics"class="btn">POLITICS</a>
+      </div>
+
+      <div class="box">
+        <img src="/static/img/Sports.png"alt="">
+        <a href="/Sports"class="btn">SPORTS</a>
+      </div>
+
+      <div class="box">
+        <img src="/static/img/Business.png"alt="">
+        <a href="/Business"class="btn">BUSINESS</a>
+      </div>
+
+      
+      <div class="box">
+        <img src="/static/img/Travel.png"alt="">
+        <a href="/Travel"class="btn">TRAVEL</a>
+      </div>
+
+      <div class="box">
+        <img src="/static/img/Nature1.png"alt="">
+        <a href="/Nature"class="btn">NATURE</a>
+      </div>
+
+</section>
+
+<footer>
+  <div class="container">
+    <h1>&copy; QuickReads 2024</h1>
+    <div class="sources">
+      <h1>Sources:</h1>
+      <ul>
+        <li><a href="https://www.healthline.com/" target="_blank"><img src="/static/img/1.png" alt="Healthline"></a></li>
+        <li><a href="https://www.bbc.com/news" target="_blank" ><img src="/static/img/2.png" alt="BBC News"></a></li>
+        <li><a href="https://www.edutopia.org/" target="_blank"><img src="/static/img/3.png" alt="Edutopia"></a></li>
+        <li><a href="https://www.ndtv.com/" target="_blank"><img src="/static/img/4.png" alt="NDTV"></a></li>
+        <li><a href="https://www.empireonline.com/" target="_blank"><img src="/static/img/5.png" alt="Empire"></a></li>
+        <li><a href="https://www.wionews.com/sports/" target="_blank"><img src="/static/img/6.png" alt="WION"></a></li>
+        <li><a href="https://www.lonelyplanet.com/" target="_blank"><img src="/static/img/7.png" alt="LonelyPlanet"></a></li>
+        <li><a href="https://phys.org/earth-news/" target="_blank"><img src="/static/img/8.png" alt="PhysOrg"></a></li>
+        <li><a href="https://www.forbes.com/?sh=3c2cd5ad2254" target="_blank"><img src="/static/img/9.png" alt="Forbes"></a></li>
+        <!-- Add more sources as needed -->
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="/static/js/home.js"></script>
+</body>
+</html>
