@@ -1,0 +1,28 @@
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table th, .table td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+.text-container {
+    margin-top: 20px;
+}
+
+.text-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.text-list li {
+    background-color: greenyellow;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.text-info {
+    margin-top: 20px;
+}
