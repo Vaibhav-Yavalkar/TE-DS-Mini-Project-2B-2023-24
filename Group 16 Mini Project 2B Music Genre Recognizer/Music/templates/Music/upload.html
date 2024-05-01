@@ -1,0 +1,71 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+    <title>Music Genre Classifier</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'Music/upload.css' %}">
+</head>
+<body>
+    <header>
+        <!-- <a href="#" class="logo">Logo</a> -->
+        <ul>
+            <li><a href="{% url 'app-home' %}" >Home</a></li>
+            <li><a href="{% url 'about' %}" >About Team</a></li>
+        </ul>
+    </header>
+
+    <section>
+        <div class="content-container">
+            <div class="upload-section">
+                <h2>Upload Music File</h2>
+                <form method="post" enctype="multipart/form-data" action="{% url 'upload' %}">
+                    {% csrf_token %}
+                    <input type="file" name="audio_file" accept=".wav">
+                    <button type="submit" id="btn">Upload and Predict Genre</button>
+                </form>
+            </div>
+            <div class="result-section">
+                <h2>Prediction Result</h2>
+                    <p id="predictionResult">Predicted Genre: {{ genre }}</p>
+                    <p id="predictionResult">{{ error_message }}</p>
+                    <p id="predictionResult">Please upload a music file to get the prediction.</p>
+            </div>
+        </div>
+        <img src="{% static 'Music/stars.png' %}" id="stars">
+        <img src="{% static 'Music/moon.png' %}" id="moon">
+        <img src="{% static 'Music/mountains_behind.png' %}" id="mountains_behind">
+        <img src="{% static 'Music/mountains_front.png' %}" id="mountains_front">
+    </section>
+
+    <script>
+        let stars = document.getElementById('stars');
+        let moon = document.getElementById('moon');
+        let mountains_behind = document.getElementById('mountains_behind');
+        let mountains_front = document.getElementById('mountains_front');
+        // let header = document.querySelector('header');
+
+        window.addEventListener('scroll', function() {
+            let value = window.scrollY;
+            stars.style.left = value * 0.25 + 'px';
+            moon.style.top = value * 1.05 + 'px';
+            mountains_behind.style.top = value * 0.5 + 'px';
+            mountains_front.style.top = value * 0 + 'px';
+            header.style.top = value * 0.5 + 'px';
+        });
+
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            const allowedTypes = ['audio/wav', 'audio/mpeg'];
+            if (!allowedTypes.includes(file.type)) {
+                alert('Please upload a .wav or .mp3 file.');
+                return;
+            }
+
+            // Here, you would send the file to your server or API for prediction
+            // and update the predictionResult element with the prediction result
+            const predictionResult = document.getElementById('predictionResult');
+            predictionResult.textContent = 'Prediction placeholder text';
+        }
+    </script>
+</body>
+</html>
